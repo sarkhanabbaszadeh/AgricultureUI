@@ -1,0 +1,23 @@
+﻿@using EntityLayer.Entities
+@model List<Service>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Yeni Xidmet Listi</h1>
+
+<tabe class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Basliq</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ServiceID</td>
+            <td>@item.Title</td>
+        </tr>
+    }
+</tabe>
+<br />
+<a href="/Service/AddService" class="btn btn-outline-info">Yeni Xidmət</a>

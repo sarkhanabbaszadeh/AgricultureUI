@@ -1,0 +1,25 @@
+﻿@model EntityLayer.Entities.Service
+@{
+    ViewData["Title"] = "AddService";
+}
+
+<h1>Yeni Xidmet Girisi</h1>
+
+<form method="post">
+    <div class="form-group">
+        @Html.Label("Başlıq")
+        <input type="text" asp-for="Title" />
+        <br />
+    </div>
+    <div class="form-group">
+        @Html.Label("Şəkil")
+        <input type="text" asp-for="Image" />
+        <br />
+    </div>
+    <div class="form-group">
+        @Html.Label("Açıqlama")
+        <input type="text" asp-for="Description" />
+        <br />
+    </div>
+    <button class="btn btn-outline-info">Əlavə et</button>
+</form>
