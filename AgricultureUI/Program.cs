@@ -12,6 +12,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IServiceService, ServiceManager>();
 builder.Services.AddScoped<IServiceDal, EfServiceDal>();
 
+builder.Services.AddScoped<ITeamService, TeamManager>();
+builder.Services.AddScoped<ITeamDal, EfTeamDal>();
+
 builder.Services.AddDbContext<AgricultureContext>();
 builder.Services.AddControllersWithViews();
 
