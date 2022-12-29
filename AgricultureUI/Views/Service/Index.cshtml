@@ -2,10 +2,11 @@
 @model List<Service>
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Yeni Xidmet Listi</h1>
-
+<h1>Yeni Xidmət Listi</h1>
+<div class="table-responsive pt-3">
 <table class="table table-bordered">
     <tr>
         <th hidden>#</th>
@@ -21,5 +22,6 @@
         </tr>
     }
 </table>
+</div>
 <br />
 <a href="/Service/AddService" class="btn btn-outline-info">Yeni Xidmət</a>
