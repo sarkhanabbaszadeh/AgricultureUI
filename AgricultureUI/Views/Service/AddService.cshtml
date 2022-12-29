@@ -4,28 +4,33 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Yeni Xidmət Girişi</h1>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Xidmət Girişi</h4>
+            <form method="post">
+                <div class="form-group">
+                    @Html.Label("Başlıq")
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <input type="text" asp-for="Title" class="form-control" />
+                    <br />
+                </div>
+                <div class="form-group">
+                    @Html.Label("Şəkil")
+                    <span asp-validation-for="Image" class="text-danger"></span>
 
-<form method="post">
-    <div class="form-group">
-        @Html.Label("Başlıq")
-        <span asp-validation-for="Title" class="text-danger"></span>
-        <input type="text" asp-for="Title" class="form-control" />
-        <br />
-    </div>
-    <div class="form-group">
-        @Html.Label("Şəkil")
-        <span asp-validation-for="Image" class="text-danger"></span>
+                    <input type="text" asp-for="Image" class="form-control" />
+                    <br />
+                </div>
+                <div class="form-group">
+                    @Html.Label("Açıqlama")
+                    <span asp-validation-for="Description" class="text-danger"></span>
 
-        <input type="text" asp-for="Image" class="form-control"/>
-        <br />
+                    <input type="text" asp-for="Description" class="form-control" />
+                    <br />
+                </div>
+                <button class="btn btn-outline-info">Əlavə et</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        @Html.Label("Açıqlama")
-        <span asp-validation-for="Description" class="text-danger"></span>
- 
-        <input type="text" asp-for="Description" class="form-control"/>
-        <br />
-    </div>
-    <button class="btn btn-outline-info">Əlavə et</button>
-</form>
+</div>
