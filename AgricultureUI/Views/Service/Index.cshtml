@@ -6,18 +6,20 @@
 
 <h1>Yeni Xidmet Listi</h1>
 
-<tabe class="table table-bordered">
+<table class="table table-bordered">
     <tr>
-        <th>#</th>
+        <th hidden>#</th>
         <th>Basliq</th>
+        <th>Əməliyyatlar</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.ServiceID</td>
+            <td hidden>@item.ServiceID</td>
             <td>@item.Title</td>
+            <td><a href="/Service/DeleteService/@item.ServiceID" class="btn btn-danger">Sil</a> <a href="/Service/EditService/@item.ServiceID" class="btn btn-success">Dəyişdir</a></td>
         </tr>
     }
-</tabe>
+</table>
 <br />
 <a href="/Service/AddService" class="btn btn-outline-info">Yeni Xidmət</a>

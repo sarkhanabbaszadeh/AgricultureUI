@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Abstract;
+﻿using AgricultureUI.Models;
+using BusinessLayer.Abstract;
 using EntityLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,13 +23,45 @@ namespace AgricultureUI.Controllers
         [HttpGet]
         public IActionResult AddService()
         {
-            return View();
+            return View(new ServiceAddViewModel());
         }
 
         [HttpPost]
-        public IActionResult AddService(Service service)
+        public IActionResult AddService(ServiceAddViewModel model)
         {
-            _serviceService.Insert(service);
+            if(ModelState.IsValid)
+            {
+                _serviceService.Insert(new Service()
+                {
+                    Title=model.Title,
+                    Image=model.Image,
+                    Description=model.Description
+                });
+                return RedirectToAction("Index");
+
+            }
+            return View(model);
+        }
+
+
+        public IActionResult DeleteService(int id)
+        {
+            var values = _serviceService.GetById(id);
+            _serviceService.Delete(values);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult EditService(int id)
+        {
+            var values = _serviceService.GetById(id);
+            return View(values);
+        }
+
+        [HttpPost]
+        public IActionResult EditService(Service service)
+        {
+            _serviceService.Update(service);
             return RedirectToAction("Index");
         }
     }
