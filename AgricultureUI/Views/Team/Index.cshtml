@@ -14,7 +14,7 @@
                     <thead>
                         <tr>
                             <th>Şəkil</th>
-                            <th>#</th>
+                            <th hidden>#</th>
                             <th>Ad</th>
                             <th>Vəzifə</th>
                             <th>Əməliyyatlar</th>
@@ -23,17 +23,19 @@
                     <tbody>
                         @foreach(var item in Model)
                         {
+                            string imgurl = "/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/images/faces/face";
+                            string jpg = ".jpg";
                             <tr>
                                 <td class="py-1">
-                                    <img src="~/MajesticAdmin-Free-Bootstrap-Admin-Template-master/template/images/faces/face1.jpg" alt="image" />
+                                    <img src="@imgurl@item.TeamID@jpg" alt="image" />
                                 </td>
-                                <td>@item.TeamID</td>
+                                <td hidden>@item.TeamID</td>
                                 <td>@item.PersonName</td>
                                 <td>@item.Title</td>
-                                <td><a href="/Team/DeleteTeam/" class="btn btn-danger">Sil</a> <a href="/Team/EditTeam/" class="btn btn-success">Dəyişdir</a></td>
+                                <td><a href="/Team/DeleteTeam/@item.TeamID" class="btn btn-danger">Sil</a> <a href="/Team/EditTeam/@item.TeamID" class="btn btn-success">Dəyişdir</a></td>
                             </tr>
                         }
-                       
+ 
                     </tbody>
                 </table>
                 <a href="/Team/AddTeam/" class="btn btn-info">Yeni Əməkdaş Girişi</a>
