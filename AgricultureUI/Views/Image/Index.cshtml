@@ -1,0 +1,22 @@
+﻿@using EntityLayer.Entities
+@model List<Image>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th hidden>#</th>
+        <th>Title</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td hidden>@item.ImageID</td>
+            <td>@item.Title</td>
+        </tr>
+        
+    }
+</table>
+

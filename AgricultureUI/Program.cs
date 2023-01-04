@@ -15,6 +15,12 @@ builder.Services.AddScoped<IServiceDal, EfServiceDal>();
 builder.Services.AddScoped<ITeamService, TeamManager>();
 builder.Services.AddScoped<ITeamDal, EfTeamDal>();
 
+builder.Services.AddScoped<INewsService, NewsManager>();
+builder.Services.AddScoped<INewsDal, EfNewsDal>();
+
+builder.Services.AddScoped<IImageService,ImageManager>();
+builder.Services.AddScoped<IImageDal,EfImageDal>();
+
 builder.Services.AddDbContext<AgricultureContext>();
 builder.Services.AddControllersWithViews();
 
