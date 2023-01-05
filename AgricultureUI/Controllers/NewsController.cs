@@ -28,6 +28,8 @@ namespace AgricultureUI.Controllers
         [HttpPost]
         public IActionResult AddNews(News n)
         {
+            n.Date= DateTime.Parse(DateTime.Now.ToShortDateString());
+            n.Status = false;
             _newsService.Insert(n);
             return RedirectToAction("Index");
         }
@@ -52,6 +54,17 @@ namespace AgricultureUI.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult ChangeStatusToTrue(int id)
+        {
+            _newsService.NewsStatusToTrue(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult ChangeStatusToFalse(int id)
+        {
+            _newsService.NewsStatusToFalse(id);
+            return RedirectToAction("Index");
+        }
 
     }
 }

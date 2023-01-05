@@ -1,8 +1,30 @@
-﻿
+﻿@model EntityLayer.Entities.News
 @{
     ViewData["Title"] = "AddNews";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>AddNews</h1>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Məlumat Giriş səhifəsi</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Başlıq</label>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <input type="text" asp-for="Title" class="form-control" placeholder="Başlıq daxil edin.." />
+                    <br />
+                </div>
+                <div class="form-group">
+                    @Html.Label("Açıqlama")
+@*                    <span asp-validation-for="Description" class="text-danger"></span>*@
+                    <textarea cols="30" rows="5" class="form-control" asp-for="Description" placeholder="Açıklama daxil edin.."></textarea>
+                    <br />
+                </div>
+                <button class="btn btn-info">Əlavə et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 

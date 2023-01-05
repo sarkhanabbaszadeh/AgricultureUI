@@ -9,6 +9,8 @@ namespace DataAccessLayer.Abstract
 {
     public interface INewsDal : IGenericDal<News>
     {
+        void NewsStatusToTrue(int id);
+        void NewsStatusToFalse(int id);
 
     }
 }

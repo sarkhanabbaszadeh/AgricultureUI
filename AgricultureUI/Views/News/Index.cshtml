@@ -26,8 +26,8 @@
                             <td>@item.Title</td>
                             <td>@item.Date</td>
                             <td><a href="/News/DeleteNews/@item.NewsID" class="btn btn-danger">Sil</a> <a href="/News/EditNews/@item.NewsID" class="btn btn-success">Dəyişdir</a></td>
-                            <td><a href="/News/DeleteNews/@item.NewsID" class="btn btn-info">Aktiv</a></td>
-                            <td><a href="/News/DeleteNews/@item.NewsID" class="btn btn-danger">Deaktiv</a></td>
+                            <td><a href="/News/ChangeStatusToTrue/@item.NewsID" class="btn btn-info">Aktiv</a></td>
+                            <td><a href="/News/ChangeStatusToFalse/@item.NewsID" class="btn btn-danger">Deaktiv</a></td>
 
                         </tr>
                     }

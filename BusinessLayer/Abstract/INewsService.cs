@@ -9,6 +9,7 @@ namespace BusinessLayer.Abstract
 {
     public interface INewsService : IGenericService<News>
     {
-
+        void NewsStatusToTrue(int id);
+        void NewsStatusToFalse(int id);
     }
 }

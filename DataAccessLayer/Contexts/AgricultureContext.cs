@@ -13,7 +13,7 @@ namespace DataAccessLayer.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=ABBASZADEH-PC;database=DbAgriculture;integrated security=true;encrypt=false");
+            optionsBuilder.UseSqlServer("server=SABBASZADA-N\\MSSQLSERVER2;database=DbAgriculture;integrated security=true;encrypt=false");
         }
 
         public DbSet<Address> Addresses { get; set; }

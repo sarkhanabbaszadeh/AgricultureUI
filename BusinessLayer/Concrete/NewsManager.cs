@@ -38,6 +38,16 @@ namespace BusinessLayer.Concrete
             _newsDal.Insert(t);
         }
 
+        public void NewsStatusToFalse(int id)
+        {
+            _newsDal.NewsStatusToFalse(id);
+        }
+
+        public void NewsStatusToTrue(int id)
+        {
+            _newsDal.NewsStatusToTrue(id);
+        }
+
         public void Update(News t)
         {
             _newsDal.Update(t);

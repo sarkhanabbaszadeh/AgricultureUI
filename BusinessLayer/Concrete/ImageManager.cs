@@ -20,12 +20,12 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Image t)
         {
-            throw new NotImplementedException();
+            _imageDal.Delete(t);
         }
 
         public Image GetById(int id)
         {
-            throw new NotImplementedException();
+            return _imageDal.GetById(id);
         }
 
         public List<Image> GetListAll()
@@ -35,12 +35,12 @@ namespace BusinessLayer.Concrete
 
         public void Insert(Image t)
         {
-            throw new NotImplementedException();
+            _imageDal.Insert(t);
         }
 
         public void Update(Image t)
         {
-            throw new NotImplementedException();
+            _imageDal.Update(t);
         }
     }
 }
