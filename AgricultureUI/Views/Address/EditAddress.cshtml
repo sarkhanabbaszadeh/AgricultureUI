@@ -1,0 +1,48 @@
+﻿@model EntityLayer.Entities.Address
+@{
+    ViewData["Title"] = "EditAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Address məlumat yeniləmə səhifəsi</h4>
+            <form class="form-sample" method="post">
+                <div class="form-group">
+                    @Html.HiddenFor(x=>x.AddressID)
+                    <label>Açıqlama 1</label>
+                    <span asp-validation-for="Description1" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description1" />
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label>Açıqlama 2</label>
+                    <span asp-validation-for="Description2" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description2" />
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label>Açıqlama 3</label>
+                    <span asp-validation-for="Description3" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description3" />
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label>Açıqlama 4</label>
+                    <span asp-validation-for="Description4" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Description4" />
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label>Xəritə markeri</label>
+                    <span asp-validation-for="Mapinfo" class="text-danger"></span>
+                    <input type="text" class="form-control" asp-for="Mapinfo" />
+                    <br />
+                </div>
+                <button class="btn btn-info">Dəyiş</button>
+            </form>
+        </div>
+    </div>
+</div>
+

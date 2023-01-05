@@ -21,6 +21,12 @@ builder.Services.AddScoped<INewsDal, EfNewsDal>();
 builder.Services.AddScoped<IImageService,ImageManager>();
 builder.Services.AddScoped<IImageDal,EfImageDal>();
 
+builder.Services.AddScoped<IAddressService, AddressManager>();
+builder.Services.AddScoped<IAddressDal,EfAddressDal>();
+
+builder.Services.AddScoped<IContactService, ContactManager>();
+builder.Services.AddScoped<IContactDal, EfContactDal>();
+
 builder.Services.AddDbContext<AgricultureContext>();
 builder.Services.AddControllersWithViews();
 

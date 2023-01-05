@@ -1,0 +1,41 @@
+﻿@using EntityLayer.Entities
+@model List<Contact>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Mesaj Listi</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th hidden>#</th>
+                            <th>Ad Soyad</th>
+                            <th>E-poçta</th>
+                            <th>Tarix</th>
+                            <th>Mesaja bax</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td hidden>@item.ContactID</td>
+                                <td>@item.Name</td>
+                                <td>@item.Mail</td>
+                                <td>@item.Date</td>
+                                <td><a href="/Contact/MessageDetails/@item.ContactID" class="btn btn-success">Mesaja bax</a></td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
