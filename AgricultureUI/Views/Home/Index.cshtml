@@ -68,26 +68,10 @@
 		<div class="container">
 			@await Component.InvokeAsync("_AddressPartial")
 
-			</div>
-			<div class="col-md-9 contact-middle">
-				<h2>Say Hello</h2>
-				<form action="#" method="post">
-					<div class="form-agileinfo">
-						<p>Name</p>
-						<input type="text" name="your name" placeholder="Your name" required="" />
-						<p>Email</p>
-						<input type="email" name="your email" placeholder="Your email" required="" />
-					</div>
-					<div class="form-agileits-w3layouts">
-						<p>Comments</p>
-						<textarea name="your message" placeholder="Your message" required=""></textarea>
-						<input type="submit" value="SEND MESSAGE">
-					</div>
-					<div class="clearfix"></div>
-				</form>
+			@await Html.PartialAsync("/Views/Contact/SendMessage.cshtml")
 			</div>
 		</div>
-	</div>
+
 	<div class="map-w3ls">
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6209.852593501853!2d-77.0416869731965!3d38.902800718279195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xae69b9ad9dbd5ebf!2sRenaissance+Washington%2C+DC+Dupont+Circle+Hotel!5e0!3m2!1sen!2sin!4v1479208161830"></iframe>
 	</div>

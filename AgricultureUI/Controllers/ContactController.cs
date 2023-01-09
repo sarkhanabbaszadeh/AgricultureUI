@@ -34,5 +34,19 @@ namespace AgricultureUI.Controllers
             var value = _contactService.GetById(id);
             return View(value);
         }
+
+        [HttpGet]
+        public PartialViewResult SendMessage()
+        {
+            return PartialView();
+        }
+
+        [HttpPost]
+        public IActionResult SendMessage(Contact contact)
+        {
+            contact.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            _contactService.Insert(contact);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
