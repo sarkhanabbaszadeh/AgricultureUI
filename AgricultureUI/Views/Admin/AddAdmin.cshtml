@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Entities.Admin
+
+@{
+    ViewData["Title"] = "AddAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Admin Giriş səhifəsi</h4>
+            <form class="forms-sample" method="post">
+                <div class="form-group">
+                    <label>Istifadəçi adı</label>
+                    <input type="text" asp-for="Username" class="form-control" placeholder="İstifadəçi adı daxil edin.." />
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label>Şifrə</label>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="şifrə daxil edin.." />
+                    <br />
+                </div>
+                <button class="btn btn-info">Əlavə et</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
