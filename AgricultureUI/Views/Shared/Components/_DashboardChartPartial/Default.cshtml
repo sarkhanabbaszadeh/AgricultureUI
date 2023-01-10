@@ -2,11 +2,39 @@
     <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                <p class="card-title">Cash deposits</p>
-                <p class="mb-4">To start a blog, think of a topic about and first brainstorm party is ways to write details</p>
-                <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"><ul class="dashboard-chart-legend"><li><span style="background-color: #ff4747 "></span>Returns</li><li><span style="background-color: #4d83ff "></span>Sales</li><li><span style="background-color: #ffc100 "></span>Loss</li></ul></div>
-                <canvas id="cash-deposits-chart" style="display: block; width: 547px; height: 273px;" width="547" height="273" class="chartjs-render-monitor"></canvas>
+                <!DOCTYPE html>
+                <html>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+                <body>
+                    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+                    <script>
+                        var xValues = [50,60,70,80,90,100,110,120,130,140,150];
+                        var yValues = [7,8,8,9,9,9,10,11,14,14,15];
+
+                        new Chart("myChart", {
+                          type: "line",
+                          data: {
+                            labels: xValues,
+                            datasets: [{
+                              fill: false,
+                              lineTension: 0,
+                              backgroundColor: "rgba(0,0,255,1.0)",
+                              borderColor: "rgba(0,0,255,0.1)",
+                              data: yValues
+                            }]
+                          },
+                          options: {
+                            legend: {display: false},
+                            scales: {
+                              yAxes: [{ticks: {min: 6, max:16}}],
+                            }
+                          }
+                        });
+                    </script>
+
+                </body>
+            </html>
             </div>
         </div>
     </div>
@@ -14,11 +42,40 @@
         <div class="card">
             <div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
             <div class="card-body">
-                <p class="card-title">Total sales</p>
-                <h1>$ 28835</h1>
-                <h4>Gross sales over the years</h4>
-                <p class="text-muted">Today, many people rely on computers to do homework, work, and create or store useful information. Therefore, it is important </p>
-                <div id="total-sales-chart-legend"><ul class="dashboard-chart-legend mb-0 mt-4"><li><span style="background-color: rgba(47,91,191,0.77) "></span>2019</li><li><span style="background-color: rgba(77,131,255,0.77) "></span>2018</li><li><span style="background-color: rgba(77,131,255,0.43) "></span>Past years</li></ul></div>
+            <!DOCTYPE html>
+            <html>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+            <body>
+
+                <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+
+                <script>
+                    var xValues = ["Mobile", "Web", "Desktop", "System", "Console"];
+                    var yValues = [@ViewBag.v1, @ViewBag.v2, @ViewBag.v3, @ViewBag.v4, @ViewBag.v5];
+                    var barColors = ["red", "green", "blue", "orange", "brown"];
+
+                    new Chart("myChart2", {
+                        type: "bar",
+                        data: {
+                            labels: xValues,
+                            datasets: [{
+                                backgroundColor: barColors,
+                                data: yValues
+                            }]
+                        },
+                        options: {
+                            legend: { display: false },
+                            title: {
+                                display: true,
+                                text: "Dünyada istifadə edilən texnoloji sahələr "+@DateTime.Now.Year+""
+                            }
+                        }
+                    });
+                </script>
+
+            </body>
+        </html>
+
             </div>
             <canvas id="total-sales-chart" width="427" height="213" style="display: block;" class="chartjs-render-monitor"></canvas>
         </div>
