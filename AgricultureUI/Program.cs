@@ -6,6 +6,7 @@ using DataAccessLayer.Contexts;
 using EntityLayer.Entities;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,7 +41,11 @@ builder.Services.AddScoped<IAboutDal, EfAboutDal>();
 builder.Services.AddScoped<IAdminService, AdminManager>();
 builder.Services.AddScoped<IAdminDal, EfAdminDal>();
 
+
 builder.Services.AddDbContext<AgricultureContext>();
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AgricultureContext>();
+
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddMvc(config =>
