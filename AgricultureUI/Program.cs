@@ -39,6 +39,11 @@ builder.Services.AddAuthentication(
         x.LoginPath = "/Login/Index/";
     });
 
+builder.Services.ConfigureApplicationCookie(options => //login sehifesine yonlendirme ucun bunu elave etdim..
+{
+    options.LoginPath = "/Login/Index/";
+});
+
 
 var app = builder.Build();
 
