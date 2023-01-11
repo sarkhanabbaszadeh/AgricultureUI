@@ -9,14 +9,37 @@ namespace AgricultureUI.Controllers
     public class LoginController : Controller
     {
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public LoginController(UserManager<IdentityUser> userManager)
+        public LoginController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(LoginViewModel loginViewModel)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync
+                    (loginViewModel.username, loginViewModel.password, false, false);
+                if(result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Dashboard");
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+
             return View();
         }
 

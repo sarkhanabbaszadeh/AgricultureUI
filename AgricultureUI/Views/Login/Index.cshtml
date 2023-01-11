@@ -1,4 +1,4 @@
-﻿
+﻿@model AgricultureUI.Models.LoginViewModel
 @{
     Layout = null;
 }
@@ -32,12 +32,12 @@ Author URL: http://w3layouts.com
 				</div>
 				<div class="form-section">
 					<h3>Giriş</h3>
-					<form action="#" method="post" class="signin-form">
+					<form method="post" class="signin-form">
 						<div class="form-input">
-							<input type="text" name="Username" placeholder="İstifadəçi" required="" autofocus>
+							<input type="text" asp-for="username" placeholder="İstifadəçi" required="" autofocus>
 						</div>
 						<div class="form-input">
-							<input type="password" name="password" placeholder="Şifrə" required="">
+							<input type="password" asp-for="password" placeholder="Şifrə" required="">
 						</div>
 						<label class="check-remaind">
 							<input type="checkbox">
