@@ -52,29 +52,53 @@ namespace AgricultureUI.Controllers
         [HttpPost]
         public async Task<IActionResult> SignUp(RegisterViewModel registerViewModel)
         {
-            IdentityUser identityUser = new IdentityUser()
+            if (ModelState.IsValid)
             {
-                Id = "1", //bunu eslinde migration edende duzelis etmeliydik ki avtomatik artsin ve int olsun.
-                UserName = registerViewModel.userName,
-                Email = registerViewModel.email
-            };
-            if(registerViewModel.password==registerViewModel.passwordConfirm)
-            {
-                var result = await _userManager.CreateAsync(identityUser, registerViewModel.password);
-                if(result.Succeeded)
+                IdentityUser user = new IdentityUser();
+                user.UserName = registerViewModel.userName;
+                user.Email = registerViewModel.email;
+
+                IdentityResult result = await _userManager.CreateAsync(user, registerViewModel.password);
+
+                if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Login");
                 }
                 else
                 {
-                    foreach (var item in result.Errors)
+                    foreach (IdentityError item in result.Errors)
                     {
                         ModelState.AddModelError("", item.Description);
                     }
                 }
+
             }
 
-            return View(registerViewModel);
+            return View();
+
+            //IdentityUser identityUser = new IdentityUser()
+            //{
+            //    Id = "1", //bunu eslinde migration edende duzelis etmeliydik ki avtomatik artsin ve int olsun.
+            //    UserName = registerViewModel.userName,
+            //    Email = registerViewModel.email
+            //};
+            //if(registerViewModel.password==registerViewModel.passwordConfirm)
+            //{
+            //    var result = await _userManager.CreateAsync(identityUser, registerViewModel.password);
+            //    if(result.Succeeded)
+            //    {
+            //        return RedirectToAction("Index", "Login");
+            //    }
+            //    else
+            //    {
+            //        foreach (var item in result.Errors)
+            //        {
+            //            ModelState.AddModelError("", item.Description);
+            //        }
+            //    }
+            //}
+
+            //return View(registerViewModel);
         }
 
         public async Task<IActionResult> LogOut()
